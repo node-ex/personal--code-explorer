@@ -2,7 +2,7 @@
 import type { Config } from '@jest/types';
 
 export default {
-  displayName: 'app-nest-1',
+  displayName: 'server',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
@@ -22,5 +22,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/app-nest-1',
+  coverageDirectory: '../../coverage/apps/server',
 } as Config.InitialOptions;

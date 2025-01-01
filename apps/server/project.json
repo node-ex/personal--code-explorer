@@ -1,7 +1,7 @@
 {
-  "name": "app-nest-1",
+  "name": "server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/app-nest-1/src",
+  "sourceRoot": "apps/server/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -10,16 +10,16 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "app-nest-1:build",
+        "buildTarget": "server:build",
         "runBuildTargetDependencies": false,
         "inspect": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "app-nest-1:build:development"
+          "buildTarget": "server:build:development"
         },
         "production": {
-          "buildTarget": "app-nest-1:build:production"
+          "buildTarget": "server:build:production"
         }
       }
     },

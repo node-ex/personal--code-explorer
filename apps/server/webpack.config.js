@@ -3,7 +3,7 @@ const { join } = require('path');
 
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/apps/app-nest-1'),
+    path: join(__dirname, '../../dist/apps/server'),
     /**
      * Enable breakpoints in the source code when debugging using
      * VSCode JavaScript Debug Terminal and CWD is the root of the Nx workspace

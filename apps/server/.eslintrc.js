@@ -13,7 +13,7 @@ module.exports = {
       // We set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
       // https://nx.dev/recipes/tips-n-tricks/eslint
       parserOptions: {
-        project: ['apps/app-nest-1/tsconfig.*?.json'],
+        project: ['apps/server/tsconfig.*?.json'],
       },
       extends: [
         'plugin:@typescript-eslint/strict-type-checked',

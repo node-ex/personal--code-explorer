@@ -20,8 +20,8 @@ Make sure setup is completed and is up-to-date.
 You can start each app manually:
 
 ```bash
-# app-nest-1
-pnpm exec nx run app-nest-1:serve
+# server
+pnpm exec nx run server:serve
 # Access via: http://localhost:3000
 ```
 
@@ -32,11 +32,11 @@ pnpm exec nx run app-nest-1:serve
 pnpm exec nx run-many --target=build --all=true
 
 # Build a single app
-pnpm exec nx run app-nest-1:build
+pnpm exec nx run server:build
 
 # Preview backend
-pnpm exec nx run app-nest-1:preview
-node ./dist/apps/app-nest-1/main.js
+pnpm exec nx run server:preview
+node ./dist/apps/server/main.js
 ```
 
 ### Formatting
@@ -45,10 +45,10 @@ We use Prettier to format the code. To run it, use `format*` commands from `pack
 
 ```bash
 # Run format checking for a single project
-pnpm exec nx format:check --projects app-nest-1
+pnpm exec nx format:check --projects server
 
 # Run format fixing for a single project
-pnpm exec nx format:write --projects app-nest-1
+pnpm exec nx format:write --projects server
 
 # Run format checking for all non-ignored files in the repository
 pnpm exec nx format:check --all
@@ -77,12 +77,12 @@ We use `tsc` for type checking. To run it, use `type-check*` commands from `pack
 ```bash
 # Use type-checking (side-effect of the composite build) for a single project (recommended)
 # https://github.com/nrwl/nx/issues/3664#issuecomment-731918931
-pnpm exec nx run app-nest-1:type-check
+pnpm exec nx run server:type-check
 # For prettier output
-pnpm exec tsc --build --incremental ./apps/app-nest-1/tsconfig.json
+pnpm exec tsc --build --incremental ./apps/server/tsconfig.json
 
 # Type check a single project (does not work well)
-pnpm exec tsc -p ./apps/app-nest-1/tsconfig.json
+pnpm exec tsc -p ./apps/server/tsconfig.json
 
 # Use type-checking (side-effect of the composite build) for all projects
 pnpm exec nx run-many --target=type-check
@@ -102,10 +102,10 @@ We use ESLint to lint the code. To run it, use `lint*` commands from `package.js
 
 ```bash
 # Run lint checking for a single project
-pnpm exec nx run app-nest-1:lint
+pnpm exec nx run server:lint
 
 # Fix auto-fixable lint errors for a single project
-pnpm exec nx run app-nest-1:lint --fix=true
+pnpm exec nx run server:lint --fix=true
 
 # Run lint checking for all project files only (inside of `./apps` and `./libs`)
 pnpm exec nx run-many --target=lint --all=true
@@ -114,10 +114,10 @@ pnpm exec nx run-many --target=lint --all=true
 pnpm exec nx run-many --target=lint --all=true --fix=true
 
 # Run lint checking for specific projects
-pnpm exec nx run-many --target=lint --projects=app-nest-1,app-nest-2
+pnpm exec nx run-many --target=lint --projects=server,app-nest-2
 
 # Run lint checking in specific folder only (does not work in @nx/eslint v19.5.1)
-pnpm exec nx run app-nest-1:lint --lintFilePatterns 'apps/app-nest-1/src/**/*'
+pnpm exec nx run server:lint --lintFilePatterns 'apps/server/src/**/*'
 
 # Run lint checking for files outside of Nx projects (outside of `./apps` and `./libs`)
 pnpm exec eslint --config .eslintrc.root.js --ext .js,.cjs,.mjs,.ts --max-warnings 0 .
@@ -141,13 +141,13 @@ Unit tests are run using Jest. To run them, either use commands from `package.js
 
 ```bash
 # Run tests for a single app
-pnpm exec nx test app-nest-1
+pnpm exec nx test server
 
 # Run tests for all apps
 pnpm exec nx run-many -t test
 
 # Run tests for multiple apps
-pnpm exec nx run-many -t test -p app-nest-1 app-nest-2
+pnpm exec nx run-many -t test -p server app-nest-2
 
 # Run unit tests only for affected projects (useful for CI)
 pnpm exec nx affected -t test --base=main
@@ -173,7 +173,7 @@ pnpm exec nx affected -t build --graph --base=HEAD
 pnpm exec nx show projects
 
 # Show details about a specific project and its targets
-pnpm exec nx show project app-nest-1
-pnpm exec nx show --json project app-nest-1
-pnpm exec nx show --json project app-nest-1 | jq
+pnpm exec nx show project server
+pnpm exec nx show --json project server
+pnpm exec nx show --json project server | jq
 ```
