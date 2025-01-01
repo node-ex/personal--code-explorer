@@ -1,0 +1,51 @@
+# Repository description
+
+## Business
+
+The goal of the project, whose codebase is contained in this repository, is to create an application that allows to analyze any codebase, store the findings in the database, and generate reports regarding its contents. The key idea is to use LLMs to analyze the codebase files.
+
+## Technical
+
+This repository should contain an Nx workspace.
+
+# Apps, libraries
+
+This repository should contains multiple apps and libraries.
+
+## `server`
+
+A NestJS app that should do the following:
+
+- Find and read contents of codebase files
+- Analyze them using LLMs
+- Store the findings in the database
+- Generate reports based on the findings
+
+### Files structure
+
+Files structure of this app should follow NestJS best practices and clean architecture guidelines.
+
+**Modules**
+
+- Related functionality should be grouped into modules
+- Each module should have a single purpose
+- There should be a `core` module that integrates other modules
+
+**Module layers**
+
+- Each modules may contain the following layers:
+
+  - `domain` - should contain domain logic and business rules
+    - Should contain the following code constructs: entities, aggregates, value objects, domain services, domain events, specifications, policies, as well as domain specific enums, errors, etc.
+  - `application` - serves as a glue between interaction, domain, and infrastructure logic
+    - Should contain the following code constructs: use cases (serve as input ports), application services, application events, output ports (e.g. repository interfaces), application events, as well as application specific enums, errors, etc.
+  - `interaction` - also referred as `interfaces`, contains the logic through which clients interact with the application
+    - Should contain the following code constructs: controllers (for HTTP APIs), CLI commands, DTOs, input validation schemas, interaction services, as well as interaction enums, errors, etc.
+  - `infrastructure` - contains the logic through which application communicates with other tools abd services
+    - Should contain the following code constructs: output adapters (e.g. repository implementations), data mappers, infrastructure services, as well as infrastructure enums, errors, etc.
+
+**Code constructs**
+
+- Each file should contain only a single code construct
+- Code constructs of the same type should be grouped together in a folder
+  - E.g. all HTTP API controllers of the `xyz` module of the `server` app should be placed in the `apps/server/src/modules/xyz/interaction/controllers` folder
