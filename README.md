@@ -177,3 +177,25 @@ pnpm exec nx show project server
 pnpm exec nx show --json project server
 pnpm exec nx show --json project server | jq
 ```
+
+### Migrations
+
+```bash
+# Show TypeORM CLI command help
+npm run typeorm -- --help
+
+# Create a new blank migration
+npm run typeorm -- migration:create ./apps/server/src/migrations/files/<migration-name>
+
+# Generate a new migration based on the changes in the entity files
+npm run typeorm-ds -- migration:generate ./apps/server/src/migrations/files/<migration-name>
+
+# Run migrations
+npm run typeorm-ds -- migration:run
+
+# Revert the last migration
+npm run typeorm-ds -- migration:revert
+
+# Show status of all migrations
+npm run typeorm-ds -- migration:show
+```

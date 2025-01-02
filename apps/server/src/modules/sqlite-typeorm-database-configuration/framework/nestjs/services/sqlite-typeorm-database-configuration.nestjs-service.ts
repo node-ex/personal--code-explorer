@@ -12,7 +12,6 @@ export class SqliteTypeormDatabaseConfigurationNestjsService extends SqliteTypeo
     databaseConfig: ISqliteTypeormDatabaseConfig &
       ConfigType<typeof _databaseConfig>,
   ) {
-    console.log('databaseConfig', databaseConfig);
     super(databaseConfig);
   }
 

@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "typeorm": "ts-node --project ./apps/server/tsconfig.app.json --require tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm-ds": "npm run typeorm -- --dataSource ./apps/server/src/modules/typeorm-data-sources/framework/nestjs/instances/typeorm-cli-data-source.nestjs-instance.ts"
+  },
   "dependencies": {
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^3.2.3",

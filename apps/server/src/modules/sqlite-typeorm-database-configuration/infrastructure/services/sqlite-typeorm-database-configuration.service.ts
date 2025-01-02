@@ -23,9 +23,10 @@ export class SqliteTypeormDatabaseConfigurationService {
             '..',
             '..',
             '..',
+            '..',
             'modules',
             '**',
-            '*.entity.ts',
+            '*.typeorm-entity.ts',
           ),
         ],
       }),
@@ -36,6 +37,7 @@ export class SqliteTypeormDatabaseConfigurationService {
       migrations: [
         path.resolve(
           __dirname,
+          '..',
           '..',
           '..',
           '..',
