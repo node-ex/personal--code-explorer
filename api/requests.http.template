@@ -1,0 +1,11 @@
+GET http://localhost:3000/api/greeting
+
+###
+
+POST http://localhost:3000/api/codebase-exploration/files/find
+Content-Type: application/json
+
+{
+  "baseDirectoryAbsolutePath": "/home/nodex/Documents/workspaces/programming_scripts/external_repositories/aa_personal/personal--code-explorer/apps/server/src",
+  "ignorePatterns": []
+}

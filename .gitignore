@@ -394,3 +394,7 @@ Thumbs.db
 
 # SQLite databases
 databases
+
+# VSCode REST Client extension
+api/requests.http
+!api/requests.http.template
