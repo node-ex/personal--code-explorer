@@ -51,3 +51,5 @@ Files structure of this app should follow NestJS best practices and clean archit
 - Each file should contain only a single code construct
 - Code constructs of the same type should be grouped together in a folder
   - E.g. all HTTP API controllers of the `xyz` module of the `server` app should be placed in the `apps/server/src/modules/xyz/interaction/controllers` folder
+- Interfaces should be prefixed with `I`
+  - E.g. `IXyzService`
