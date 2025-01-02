@@ -1,7 +1,7 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { FindCodebaseFilesUseCase } from '../../../application/use-cases/find-codebase-files.use-case';
 import { CodebaseExplorationController } from '../../../interaction/controllers/codebase-exploration.controller';
-import { IFindCodebaseFilesRequestDto } from '../../../interaction/dtos/find-codebase-files-request.dto';
+import { FindCodebaseFilesRequestNestjsDto } from '../dtos/find-codebase-files-request.nestjs-dto';
 
 @Controller('codebase-exploration')
 export class CodebaseExplorationNestjsController extends CodebaseExplorationController {
@@ -13,7 +13,7 @@ export class CodebaseExplorationNestjsController extends CodebaseExplorationCont
   @Post('files/find')
   @HttpCode(200)
   override async findCodebaseFiles(
-    @Body() findCodebaseFilesRequestDto: IFindCodebaseFilesRequestDto,
+    @Body() findCodebaseFilesRequestDto: FindCodebaseFilesRequestNestjsDto,
   ): Promise<void> {
     await super.findCodebaseFiles(findCodebaseFilesRequestDto);
   }
