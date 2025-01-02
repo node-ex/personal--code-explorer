@@ -1,7 +1,7 @@
 import { CodebaseFileEntity } from '../../../domain/entities/codebase-file.entity';
 import { CodebaseFileTypeormEntity } from '../entities/codebase-file.typeorm-entity';
 
-export class CodebaseFileDataMapper {
+export class CodebaseFileEntityDataMapper {
   static toDomainEntity(
     typeormEntity: CodebaseFileTypeormEntity,
   ): CodebaseFileEntity {

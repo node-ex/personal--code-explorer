@@ -3,7 +3,7 @@ import { ICodebaseFileRepositoryOutputPort } from '../../../application/reposito
 import { CodebaseFileEntity } from '../../../domain/entities/codebase-file.entity';
 import { CodebaseFileStatusEnum } from '../../../domain/enums/codebase-file-status.enum';
 import { CodebaseFileTypeormEntity } from '../entities/codebase-file.typeorm-entity';
-import { CodebaseFileDataMapper } from '../data-mappers/codebase-file.data-mapper';
+import { CodebaseFileEntityDataMapper } from '../data-mappers/codebase-file-entity.data-mapper';
 
 export class CodebaseFileTypeormRepositoryOutputAdapter
   implements ICodebaseFileRepositoryOutputPort
@@ -13,7 +13,8 @@ export class CodebaseFileTypeormRepositoryOutputAdapter
   ) {}
 
   async save(codebaseFile: CodebaseFileEntity): Promise<void> {
-    const typeormEntity = CodebaseFileDataMapper.toTypeormEntity(codebaseFile);
+    const typeormEntity =
+      CodebaseFileEntityDataMapper.toTypeormEntity(codebaseFile);
     await this.adaptedCodebaseFileRepository.save(typeormEntity);
   }
 
@@ -26,7 +27,7 @@ export class CodebaseFileTypeormRepositoryOutputAdapter
       return null;
     }
 
-    return CodebaseFileDataMapper.toDomainEntity(typeormEntity);
+    return CodebaseFileEntityDataMapper.toDomainEntity(typeormEntity);
   }
 
   async findByStatus(
@@ -36,7 +37,7 @@ export class CodebaseFileTypeormRepositoryOutputAdapter
       where: { status },
     });
 
-    return CodebaseFileDataMapper.toDomainEntities(typeormEntities);
+    return CodebaseFileEntityDataMapper.toDomainEntities(typeormEntities);
   }
 
   async updateStatus(
