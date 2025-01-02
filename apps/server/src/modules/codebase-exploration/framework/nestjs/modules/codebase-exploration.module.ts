@@ -7,4 +7,4 @@ import { codebaseFileEntityTypeormModuleImports } from '../imports/codebase-file
   providers: [],
   exports: [],
 })
-export class CodebaseFilesProcessingModule {}
+export class CodebaseExplorationModule {}
