@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { GreetingController } from '../../../interaction/controllers/greeting.controller';
 import { GreetingNestjsService } from '../services/greeting.nestjs-service';
 
-@Controller()
+@Controller('greeting')
 export class GreetingNestjsController extends GreetingController {
   /**
    * NestJS DI takes care of injecting the GreetingNestjsService
