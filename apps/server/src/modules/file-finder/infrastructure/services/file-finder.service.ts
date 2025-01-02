@@ -28,8 +28,18 @@ export class FileFinderService {
     ignorePatterns: string[] = [],
   ): (fileAbsolutePath: string) => boolean {
     const ig = ignore().add([...ignorePatterns]);
-    const isFileIgnoredFn = (fileAbsolutePath: string) =>
-      ig.ignores(path.relative(baseDirectoryAbsolutePath, fileAbsolutePath));
+    const isFileIgnoredFn = (fileAbsolutePath: string): boolean => {
+      const checkedRelativePath = path.relative(
+        baseDirectoryAbsolutePath,
+        fileAbsolutePath,
+      );
+      // Do not ignore the root directory
+      if (!checkedRelativePath) {
+        return false;
+      }
+
+      return ig.ignores(checkedRelativePath);
+    };
 
     return isFileIgnoredFn;
   }

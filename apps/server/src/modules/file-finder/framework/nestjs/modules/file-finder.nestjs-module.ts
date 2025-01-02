@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
-import { FileFinderNestJsService } from '../services/file-finder.nestjs-service';
+import { FileFinderNestjsService } from '../services/file-finder.nestjs-service';
 import { FileFinderService } from '../../../infrastructure/services/file-finder.service';
 
 @Module({
   imports: [],
-  providers: [FileFinderNestJsService],
-  exports: [
+  providers: [
+    FileFinderNestjsService,
     {
       provide: FileFinderService,
-      useExisting: FileFinderNestJsService,
+      useExisting: FileFinderNestjsService,
     },
   ],
+  exports: [FileFinderService],
 })
 export class FileFinderModule {}
