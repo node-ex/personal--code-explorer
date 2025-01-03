@@ -1,13 +1,13 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SqliteTypeormDatabaseConfigurationNestjsModule } from '../modules/sqlite-typeorm-database-configuration.nestjs-module';
-import { SqliteTypeormDatabaseConfigurationNestjsService } from '../services/sqlite-typeorm-database-configuration.nestjs-service';
+import { TypeormConfigurationNestjsModule } from '../modules/typeorm-configuration.nestjs-module';
+import { TypeormConfigurationNestjsService } from '../services/typeorm-configuration.nestjs-service';
 
 export const rootTypeormModuleNestjsImports = [
   TypeOrmModule.forRootAsync({
-    imports: [SqliteTypeormDatabaseConfigurationNestjsModule],
+    imports: [TypeormConfigurationNestjsModule],
     useFactory: (
-      databaseConfigurationService: SqliteTypeormDatabaseConfigurationNestjsService,
-    ) => databaseConfigurationService.getTypeormModuleOptions(),
-    inject: [SqliteTypeormDatabaseConfigurationNestjsService],
+      typeormConfigurationService: TypeormConfigurationNestjsService,
+    ) => typeormConfigurationService.getModuleOptions(),
+    inject: [TypeormConfigurationNestjsService],
   }),
 ];

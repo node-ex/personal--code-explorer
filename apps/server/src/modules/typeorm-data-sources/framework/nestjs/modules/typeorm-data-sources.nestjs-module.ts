@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
 import { rootConfigModuleNestjsImports } from '../../../../core/framework/nestjs/imports/root-config-module.nestjs-imports';
-import { SqliteTypeormDatabaseConfigurationNestjsModule } from '../../../../sqlite-typeorm-database-configuration/framework/nestjs/modules/sqlite-typeorm-database-configuration.nestjs-module';
+import { TypeormConfigurationNestjsModule } from '../../../../sqlite-typeorm-database-configuration/framework/nestjs/modules/typeorm-configuration.nestjs-module';
 
 @Module({
-  imports: [
-    ...rootConfigModuleNestjsImports,
-    SqliteTypeormDatabaseConfigurationNestjsModule,
-  ],
+  imports: [...rootConfigModuleNestjsImports, TypeormConfigurationNestjsModule],
 })
 export class TypeormDataSourcesNestjsModule {}
