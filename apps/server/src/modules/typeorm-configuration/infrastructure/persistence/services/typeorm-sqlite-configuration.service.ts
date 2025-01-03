@@ -19,6 +19,7 @@ export class TypeormSqliteConfigurationService extends AbstractTypeormConfigurat
           '..',
           '..',
           '..',
+          '..',
           'migrations',
           'sqlite',
           'files',

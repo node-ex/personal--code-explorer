@@ -25,6 +25,7 @@ export abstract class AbstractTypeormConfigurationService {
             '..',
             '..',
             '..',
+            '..',
             'modules',
             '**',
             '*.typeorm-entity.ts',
