@@ -1,7 +1,7 @@
-import { DataSourceOptions } from 'typeorm';
+import { TypeormDatabaseType } from '../types/typeorm.types';
 
 export interface ITypeormConfigurationConfig {
-  databaseType: DataSourceOptions['type'];
+  databaseType: TypeormDatabaseType;
   databaseFilepath: string | undefined;
   shouldSynchronize: boolean;
 }

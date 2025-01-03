@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { AbstractTypeormConfigurationService } from '../../../infrastructure/services/abstract-typeorm-configuration.service';
+import { AbstractTypeormConfigurationService } from '../../../infrastructure/persistence/services/abstract-typeorm-configuration.service';
 import { DataSourceOptions } from 'typeorm';
 
 @Injectable()

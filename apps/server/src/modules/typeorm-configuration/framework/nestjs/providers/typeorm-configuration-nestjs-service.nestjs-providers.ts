@@ -1,9 +1,10 @@
 import { TypeormConfigurationNestjsService } from '../services/typeorm-configuration.nestjs-service';
 import { typeormConfigurationNestjsConfig } from '../configs/typeorm-configuration.nestjs-config';
-import { ITypeormConfigurationConfig } from '../../../infrastructure/interfaces/typeorm-configuration-config.interface';
+import { ITypeormConfigurationConfig } from '../../../infrastructure/persistence/interfaces/typeorm-configuration-config.interface';
 import { ConfigType } from '@nestjs/config';
-import { AbstractTypeormConfigurationService } from '../../../infrastructure/services/abstract-typeorm-configuration.service';
-import { TypeormSqliteConfigurationService } from '../../../infrastructure/services/typeorm-sqlite-configuration.service';
+import { AbstractTypeormConfigurationService } from '../../../infrastructure/persistence/services/abstract-typeorm-configuration.service';
+import { TypeormSqliteConfigurationService } from '../../../infrastructure/persistence/services/typeorm-sqlite-configuration.service';
+import { TypeormDatabaseTypesEnum } from '../../../infrastructure/persistence/enums/typeorm-database-types.enum';
 
 export const typeormConfigurationNestjsServiceNestjsProviders = [
   {
@@ -14,7 +15,10 @@ export const typeormConfigurationNestjsServiceNestjsProviders = [
         ConfigType<typeof typeormConfigurationNestjsConfig>,
     ) => {
       let typeormConfigurationService: AbstractTypeormConfigurationService;
-      if (typeormConfigurationConfig.databaseType === 'sqlite') {
+      if (
+        typeormConfigurationConfig.databaseType ===
+        TypeormDatabaseTypesEnum.SQLITE
+      ) {
         typeormConfigurationService = new TypeormSqliteConfigurationService(
           typeormConfigurationConfig,
         );
