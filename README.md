@@ -1,4 +1,4 @@
-# template--nx-nestjs--basic
+# personal--code-explorer
 
 ## Local development
 
@@ -11,7 +11,12 @@
 
 ### Setup
 
-1. `pnpm install`
+1. Install dependencies with `pnpm install`
+2. Copy `.env.template` as `.env` and add/change values if needed
+3. Run migrations with `npm run typeorm-ds -- migration:run`
+   - If SQLite database file does not exist, it will be created
+4. Run the app using `pnpm exec nx run app-nest-1:serve`
+5. Enable "REST Client" extension in VSCode and run the requests in `./api/requests.http` file
 
 ### Run the whole stack
 
